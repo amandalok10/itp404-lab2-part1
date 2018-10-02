@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Client-side Templating Demo</title>
+</head>
+<body>
+
+
+    <template id="repos-template">
+        {{#each repos}}
+        <div class="repo">
+        <h3>Name: {{name}}</h3>
+
+            <p>Location: {{location}}</p>
+            <p>Owned by: </p>
+{{#each ownedBy}}
+<ul><li>{{[]}}</li></ul>
+{{/each}}
+
+            <a href="{{yelpPage}}" target="_blank">Check us out on Yelp.</a>
+
+
+
+
+
+            {{#if acceptsApplePay}}
+            <p>We accept Apple Pay.</p>
+            <img src="og_image.png" width="200" alt="apple pay logo">
+            {{else}}
+            <p>No Apple Pay</p>
+            {{/if}}
+
+
+        </div>
+        {{/each}}
+
+    </template>
+<script src="jquery-3.3.1.js"></script>
+<script src="handlebars-v4.0.11.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
